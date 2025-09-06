@@ -1,9 +1,13 @@
-//  for dynamic routes. [id]/page.tsx
+// for dynamic routes. [id]/page.tsx
+// this is already SSG under app folder
 
 type CarProps = {
   params: { id: string };
 };
 
-export default function Car({ params }: CarProps) {
-  return <h1>SALUT {params.id}</h1>;
+export default async function Car({ params }: CarProps) {
+  const req = await fetch(`http://localhost:3000/${params.id}.json`);
+  const car = await req.json();
+
+  return <h1>SALUT {car.id} with {car.color} made in {car.made}</h1>;
 }
