@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'; // instead of <a>
 import { Fragment } from 'react';
 
 export default function NestedCars() {

@@ -6,6 +6,10 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+
+        {/* importing image from public folder */}
+        {/* in case of downloading and using external image on different domain, need to modify next.config.ts */}
+        {/* keeps correct ratio */}
         <Image
           className={styles.logo}
           src="/next.svg"
