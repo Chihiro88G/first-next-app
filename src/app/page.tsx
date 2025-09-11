@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/page.module.css";
 
+// under app folder should be files only related to routing
 // every page needs to have one 'export default' for routing reason
 export default function Home() {
   return (
