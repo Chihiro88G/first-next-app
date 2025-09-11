@@ -1,6 +1,7 @@
 // for dynamic routes. [id]/page.tsx
 // this is already SSG under app folder
 
+import { notFound } from "next/navigation";
 import Button from "./button";
 
 type CarProps = {
@@ -14,6 +15,11 @@ export default async function Car({ params }: CarProps) {
   
   // able to fetch data without useEffect
   const req = await fetch(`http://localhost:3000/${id}.json`);
+
+  // when data not found after fetching
+  // without not-found.tsx notFound shows default 404 page
+  if (!req || req.status === 404) notFound();
+
   const car = await req.json();
 
   return (
